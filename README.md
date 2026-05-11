@@ -119,8 +119,8 @@ python main.py
 ## 🚀 Getting Started
 
 ### Login Credentials (Demo)
-- **Username:** admin
-- **Password:** admin123
+- **Gmail:** admin@gmail.com
+- **Password:** admin@123
 
 ### Quick Tutorial
 
