@@ -1,0 +1,63 @@
+[
+  {
+    "id": 1,
+    "name": "Samsung Galaxy S24",
+    "brand": "Samsung",
+    "price": 12.0,
+    "ram": 8,
+    "storage": 256,
+    "color": "Midnight Black",
+    "quantity": 5
+  },
+  {
+    "id": 2,
+    "name": "iPhone 15",
+    "brand": "Apple",
+    "price": 32000,
+    "ram": 8,
+    "storage": 256,
+    "color": "Sierra Blue",
+    "quantity": 3
+  },
+  {
+    "id": 3,
+    "name": "Xiaomi 14 Ultra",
+    "brand": "Xiaomi",
+    "price": 18000,
+    "ram": 12,
+    "storage": 512,
+    "color": "Black",
+    "quantity": 8
+  },
+  {
+    "id": 5,
+    "name": "Infinix Hot 50i",
+    "brand": "Infinix",
+    "price": 120.0,
+    "ram": 6,
+    "storage": 128,
+    "color": "Titinium Grey",
+    "quantity": 7
+  },
+  {
+    "id": 6,
+    "name": "Vivo Y21",
+    "brand": "Vivo",
+    "price": 4000.0,
+    "ram": 8,
+    "storage": 256,
+    "color": "Black",
+    "quantity": 10
+  },
+  {
+    "id": 7,
+    "name": "IPhone 10",
+    "brand": "IPhone",
+    "price": 5000.0,
+    "ram": 8,
+    "storage": 256,
+    "color": "white",
+    "quantity": 10,
+    "image_path": "/home/codewithaqib/Documents/mobile_phone_store/assets/phone_images/phone_7.jpeg"
+  }
+]
