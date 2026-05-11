@@ -59,5 +59,16 @@
     "color": "white",
     "quantity": 10,
     "image_path": "/home/codewithaqib/Documents/mobile_phone_store/assets/phone_images/phone_7.jpeg"
+  },
+  {
+    "id": 8,
+    "name": "Iphone 13 Pro",
+    "brand": "IPhone",
+    "price": 6000.0,
+    "ram": 8,
+    "storage": 256,
+    "color": "Grey",
+    "quantity": 8,
+    "image_path": "/home/codewithaqib/Documents/mobile_phone_store/assets/phone_images/phone_8.jpeg"
   }
 ]

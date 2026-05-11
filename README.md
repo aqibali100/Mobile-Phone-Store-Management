@@ -136,130 +136,122 @@ python main.py
 ```
 mobile_phone_store/
 ├── main.py                    # Application entry point
-├── requirements.txt           # Python dependencies
-├── README.md                  # Documentation
-│
-├── frontend/                  # UI Layer
-│   ├── login_window.py       # Login form
-│   ├── dashboard.py          # Main dashboard
-│   ├── add_phone_window.py   # Add phone form
-│   ├── view_phone_window.py  # View all phones
-│   ├── search_phone_window.py # Search functionality
-│   ├── update_phone_window.py # Update prices
-│   ├── sales_report_window.py # Reports
-│   ├── components/           # Reusable UI components
-│   │   ├── buttons.py        # Custom button styles
-│   │   ├── tables.py         # Table widget
-│   │   └── message_boxes.py  # Dialogs & notifications
-│   └── assets/              # Images and icons
-│       ├── images/
-│       └── icons/
-│
-├── backend/                   # Business Logic
-│   ├── auth.py              # Authentication
-│   ├── phone_manager.py     # Phone operations
-│   ├── stock_manager.py     # Stock tracking
-│   ├── sales_manager.py     # Sales records
-│   └── file_handler.py      # File I/O
-│
-├── data/                      # Data Storage
-│   ├── phones.json          # Phone inventory
-│   ├── users.json           # User accounts
-│   └── sales.json           # Sales records
-│
-└── utils/                     # Utilities
-    ├── validators.py        # Input validation
-    └── constants.py         # App constants & themes
+# Mobile Phone Store System
+
+A lightweight desktop application for managing mobile phone inventory and sales, built with Python and CustomTkinter.
+
+## Quick Setup & Run (recommended)
+
+Follow these commands from the project root to create an isolated environment, install dependencies, and run the app.
+
+1) Create a virtual environment (if you don't already have one):
+
+```bash
+python -m venv venv
 ```
 
-## 💾 Data Format
+2) Activate the virtual environment:
 
-### Phone Record (phones.json)
-```json
-{
-  "id": 1,
-  "name": "Samsung S24",
-  "brand": "Samsung",
-  "price": 25000.00,
-  "ram": 8,
-  "storage": 256,
-  "color": "Midnight Black",
-  "quantity": 5
-}
+Linux / macOS (bash/zsh):
+```bash
+source venv/bin/activate
 ```
 
-## 🎨 Color Themes
-
-The application includes multiple color themes:
-
-- **Dark Blue** (Default) - Professional dark blue with cyan accents
-- **Black & Gold** - Elegant black with gold highlights
-- **Purple Gradient** - Modern purple gradient
-- **Light Gray** - Clean light theme for better readability
-
-To change theme, modify `ACTIVE_THEME` in `utils/constants.py`
-
-## 📊 Sample Data
-
-| ID | Name | Brand | Price | RAM | Storage | Qty |
-|---|---|---|---|---|---|---|
-| 1 | Samsung S24 | Samsung | $25,000 | 8GB | 256GB | 5 |
-| 2 | iPhone 15 | Apple | $32,000 | 8GB | 256GB | 3 |
-
-## ⚙️ Configuration
-
-### Modify Low Stock Threshold
-Edit in `utils/constants.py`:
-```python
-LOW_STOCK_THRESHOLD = 5  # Change to desired quantity
+Windows (PowerShell):
+```powershell
+venv\Scripts\Activate.ps1
 ```
 
-### Change Color Theme
-Edit in `utils/constants.py`:
-```python
-ACTIVE_THEME = THEME_BLACK_GOLD  # Choose any theme
+3) Install dependencies into the venv:
+
+```bash
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
 ```
 
-## 🐛 Troubleshooting
+4) Start the application (from project root):
 
-### Issue: CustomTkinter not found
-**Solution:** Run `pip install customtkinter`
+```bash
+python main.py
+```
 
-### Issue: File permission errors
-**Solution:** Ensure write permissions in data/ directory
+Alternative: run using the project's venv Python without activating:
 
-### Issue: GUI not displaying correctly
-**Solution:** Ensure you have a compatible display manager and updated Python
+```bash
+./venv/bin/python main.py
+```
 
-## 📈 Future Enhancements
+Or use the included launcher script which activates the venv (Unix):
 
-- Multi-user authentication with database
-- Barcode scanning integration
-- Email notifications for low stock
-- Advanced analytics dashboard
-- Mobile app version
-- Cloud backup integration
+```bash
+./run.sh
+```
 
-## 📝 License
+## Detailed notes & troubleshooting
 
-This project is for educational purposes.
+- Use the venv Python to avoid system-level package restrictions (PEP 668). If you see an error like "This environment is externally managed", it means you're trying to install packages to the system Python. Create and use the project `venv` as shown above.
 
-## 👨‍💻 Developer Notes
+- Verify which Python is active:
 
-- Built with CustomTkinter for modern UI
-- Uses JSON for simplicity (upgrade to SQLite for production)
-- Modular architecture for easy maintenance
-- Component-based UI for code reusability
+```bash
+python -c "import sys; print(sys.executable)"
+which python
+```
 
-## 💡 Tips
+- Check that `customtkinter` is installed in the venv:
 
-- Export reports regularly for record keeping
-- Monitor low stock warnings
-- Regular database backups recommended
-- Update prices based on market conditions
+```bash
+./venv/bin/python -m pip show customtkinter
+```
+
+- If the GUI does not appear in a headless environment (no display), set your display variable appropriately (example for X11):
+
+```bash
+export DISPLAY=:0
+./venv/bin/python main.py
+```
+
+## If something goes wrong
+
+- To reinstall dependencies in the venv:
+
+```bash
+source venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+```
+
+- If you accidentally used system `pip` and want to cleanly recreate the venv:
+
+```bash
+rm -rf venv
+python -m venv venv
+source venv/bin/activate
+python -m pip install -r requirements.txt
+```
+
+## Project structure (high level)
+
+- `main.py` — Application entry point
+- `requirements.txt` — Python dependencies
+- `run.sh` — small launcher that activates `venv` and runs `main.py`
+- `frontend/` — GUI windows and components
+- `backend/` — business logic and file handling
+- `utils/` — constants and validators
+- `data/` — JSON data files (`phones.json`, `users.json`, `sales.json`)
+- `assets/phone_images/` — images saved by the app
+
+## Common troubleshooting
+
+- "No module named 'customtkinter'": make sure you run `./venv/bin/python main.py` or activate `venv` before running `python main.py`, then install `requirements.txt` into that venv.
+- "externally-managed-environment": create and use a venv (see steps above).
+- Permissions errors when saving files: ensure `data/` and `assets/phone_images/` are writable by your user.
+
+## Developer notes
+
+- Tested with Python 3.12 in a virtual environment.
+- If you'd like a `Makefile`, desktop shortcut, or systemd user service to auto-start the app, I can add that.
 
 ---
 
-**Version:** 1.0.0  
-**Last Updated:** May 2026  
-**Status:** Active Development
+File: [README.md](README.md)
